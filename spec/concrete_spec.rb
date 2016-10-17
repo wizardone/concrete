@@ -1,10 +1,12 @@
 require 'spec_helper'
 require 'byebug'
+
 MainClass = Class.new do
-  attr_reader :readonly
-  include Concrete
+  extend Concrete
 end
-SubClass = Class.new(MainClass)
+SubClass = Class.new(MainClass) do
+  extend Concrete
+end
 
 describe Concrete do
 
@@ -28,13 +30,20 @@ describe Concrete do
   it 'sets the concrete attributes as methods' do
     subject.concrete_attributes(:some_value)
 
-    expect(subject.new.some_value).to be_nil
+    expect(subject.some_value).to be_nil
   end
 
   it 'inherits the concrete attributes' do
     subject.concrete_attributes(:some_value)
-    sub = SubClass.new
+    sub_class = SubClass
 
-    expect(sub.some_value).to eq(subject.new.some_value)
+    expect(sub_class.some_value).to eq(subject.some_value)
+  end
+
+  it 'detects parents methods' do
+    subject.concrete_attributes(:some_value)
+    subject.some_value = 'test'
+
+    expect(SubClass.concrete_for(:some_value)).to eq('test')
   end
 end

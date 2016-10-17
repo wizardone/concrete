@@ -1,13 +1,13 @@
-require "concrete/version"
+require 'concrete/version'
 require 'byebug'
 
 module Concrete
 
-  def self.included(base)
+  def self.extended(base)
     if [Module, Object].include?(base.superclass)
       base.extend(MainClassMethods)
     else
-
+      base.extend(InheritedClassMethods)
     end
   end
 
@@ -25,14 +25,23 @@ module Concrete
 
       instance_eval do
         self.concrete.each do |prop|
-          define_method("#{prop}=") do |val|
+          define_singleton_method("#{prop}=") do |val|
             instance_variable_set("@#{prop}", val)
           end
 
-          define_method("#{prop}") do
+          define_singleton_method("#{prop}") do
             instance_variable_get("@#{prop}")
           end
         end
+      end
+    end
+  end
+
+  module InheritedClassMethods
+    def concrete_for(method)
+      parent = self.superclass
+      if parent.concrete.include?(method)
+        parent.public_send(method)
       end
     end
   end
