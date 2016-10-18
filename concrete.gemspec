@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Stefan Slaveykov"]
   spec.email         = ["wizard.oneandonly@gmail.com"]
 
-  spec.summary       = %q{Concrete inheritance}
-  spec.description   = %q{blabla}
+  spec.summary       = %q{Concrete inheritance for classes}
+  spec.description   = %q{Solid inheritance for ruby classes, something like class_attribute, but not so big pile of shit}
   spec.homepage      = "https://github.com/wizardone/concrete.git"
   spec.license       = "MIT"
 
