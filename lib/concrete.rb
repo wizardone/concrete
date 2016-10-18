@@ -1,5 +1,4 @@
 require 'concrete/version'
-require 'byebug'
 
 module Concrete
 
