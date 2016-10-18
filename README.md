@@ -1,5 +1,6 @@
 # Concrete
 [![Build Status](https://travis-ci.org/wizardone/concrete.svg?branch=master)](https://travis-ci.org/wizardone/concrete)
+[![codecov](https://codecov.io/gh/wizardone/concrete/branch/master/graph/badge.svg)](https://codecov.io/gh/wizardone/concrete)
 
 ## Installation
 
