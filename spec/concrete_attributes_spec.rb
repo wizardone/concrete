@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe Concrete do
+describe ConcreteAttributes do
 
   subject do
     Class.new do
-      extend Concrete
+      extend ConcreteAttributes
       concrete_attribute :car, :truck, :plane
     end
   end
 
   it 'has a version number' do
-    expect(Concrete::VERSION).not_to be nil
+    expect(ConcreteAttributes::VERSION).not_to be nil
   end
 
   it 'has nil value by default' do

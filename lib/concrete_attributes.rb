@@ -1,6 +1,6 @@
-require 'concrete/version'
+require 'concrete_attributes/version'
 
-module Concrete
+module ConcreteAttributes
 
   def concrete_attribute(*attr)
     attr.each do |prop|

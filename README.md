@@ -6,7 +6,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'concrete'
+gem 'concrete_attributes'
 ```
 
 And then execute:
@@ -15,7 +15,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install concrete
+    $ gem install concrete_attributes
 
 ## Usage
 
@@ -23,6 +23,7 @@ Concrete gives you class level inheritance, similar to Rails
 `class_attribute`, but the implementation is far less complex.
 ```ruby
 class A
+  extend ConcreteAttributes
   concrete_attribute :car
 end
 A.car = 'bmw'
