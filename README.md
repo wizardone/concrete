@@ -19,11 +19,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Concrete gives you class level inheritance, similar to Rails
+`class_attribute`, but the implementation is far less complex.
+```ruby
+class A
+  concrete_attribute :car
+end
+A.car = 'bmw'
+
+class B < A
+end
+B.car
+=> 'bmw'
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/concrete. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wizardone/concrete. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
