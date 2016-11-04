@@ -34,6 +34,15 @@ describe ConcreteAttributes do
     expect(SubClass.car).to eq('vw')
   end
 
+  it 'does not bubble the class attributes to the parent' do
+    subject.car = 'mercedes'
+    SubClass = subclass
+    SubClass.car = 'skoda'
+
+    expect(subject.car).to eq('mercedes')
+    expect(SubClass.car).to eq('skoda')
+  end
+
   private
 
   def subclass
