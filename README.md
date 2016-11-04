@@ -33,6 +33,11 @@ class B < A
 end
 B.car
 => 'bmw'
+
+B.car = 'audi'
+
+A.car
+=> 'bmw'
 ```
 
 ## Contributing
